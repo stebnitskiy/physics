@@ -1,13 +1,13 @@
 /*  ====================================== из примера =========================*/
 :root {
-    --header-height: 100px;
+    --header-height: 40px;      /* 100px*/
     --body-border: 5px;
-    --left-width: 30px;
-    --right-width: 200px;
+    --left-width: 70px;       /*70px;*/
+    --right-width: 350px;
 }
 html, body {
 	height: 100%;
-	font-size: 0.6em;
+	font-size: 100%;
 }
 body {
     background: #fefefe;
@@ -33,24 +33,26 @@ body {
 	height: 100%;
 	width: var(--left-width);
 	display: inline-block;
-    background: Orange;  /*  желтые тона Moccasin	#FFE4B5	255, 228, 181/Khaki	#F0E68C	240, 230, 140//Orange	#FFA500	255, 165, 0 */
+    background: Moccasin;  /* Зеленые тога SpringGreen	#00FF7F	0, 255, 127   желтые тона Moccasin	#FFE4B5	255, 228, 181/Khaki	#F0E68C	240, 230, 140//Orange	#FFA500	255, 165, 0 */
 }
 #middle {
     display: inline-block;
     vertical-align: top;
 	overflow-x: auto;
-	background: Silver;  /* белые тона MintCream	#F5FFFA	245, 255, 250 */ /* Серые тона Silver	#C0C0C0	192, 192, 192*/
-	width: calc(100% - var(--right-width) - var(--left-width) - 2 * var(--body-border));
+	background: MintCream;  /* белые тона MintCream	#F5FFFA	245, 255, 250 */ /* Серые тона Silver	#C0C0C0	192, 192, 192*/
+	width: calc(100% - var(--right-width) - var(--left-width) - 1 * var(--body-border));
 	height: 100%;
 }
 #right {
     vertical-align: top;
-    height: 100%;
+    bottom: var(--body-border);     /*height: 100%;*/
     width: var(--right-width);
     position: absolute;
     right: 0;
-    top: 0;
-    background: Lime;
+    top: var(--body-border);   /*5px*/
+    background: Ivory;    /* Белые тона Ivory	#FFFFF0	255, 255, 240*/
+	overflow: auto;
+
 }
 /* table { display: block; overflow-y: auto;overflow-x: hidden; white-space: nowrap; }  */
  
@@ -74,6 +76,7 @@ td, th {
     border-spacing: 0px; /* Расстояние между ячейками */
 	bordercolor:BLACK;
 	text-align: center;
+	font-size: 1.5em;
 
 }	
 #td_m {
