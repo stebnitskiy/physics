@@ -1,4 +1,4 @@
-﻿var old_val;
+var old_val;
 var global_table;
 
 var old_value;
