@@ -2,7 +2,7 @@
 :root {
     --header-height: 40px;      /* 100px*/
     --body-border: 5px;
-    --left-width: 70px;       /*70px;*/
+    --left-width: 90px;       /*70px;*/
     --right-width: 350px;
 }
 html, body {
@@ -97,3 +97,67 @@ td, th {
     background: DarkKhaki; /*MidnightBlue  Khaki	#F0E68C	240, 230, 140*/
     cursor: hand; 
 }
+
+/* ниже из теста*/
+.zagolovok_test{
+	     font-size:30px;
+		 line-height: 80%;
+}
+.vopros_test {
+		font-size:40px;
+		line-height: 95%;
+		text-align: left;
+}
+.variant_vopros {
+		font-size:30px;
+		text-align:left;
+		line-height: 90%;
+}
+.otvet_test {
+	    font-size:27px;
+		line-height: 20%;
+}
+.fieldInput{
+		width: 9%; /* Ширина поля в пикселах */
+		line-height: 10%;
+}
+p,span, input {
+		font-size:20px;
+}
+
+button{
+    font-size:18px;
+}
+#vo {
+    color:green;
+}
+#von {
+    color:Blue;
+}
+#nvo {
+    color:red;
+}
+#ot {
+    color:blue;
+}
+
+#tbl_temi {
+	width:100%;
+	left:30%;
+	background: LightCyan; /*Blue Цвет фона таблицы Moccasin	#FFE4B5	255, 228, 181 */
+    color: BLACK ;  /* Цвет текста */
+    border-spacing: 0px; /* Расстояние между ячейками */
+	bordercolor:BLACK;
+	text-align: center;
+	font-size: 1.2em;
+
+}	
+#tdtemi {
+
+}
+.inline {					/* для расположения кнопок рядом*/
+   display:inline-block;
+   margin-right:20px;		/* расстояние между кнопками*/
+}
+/* Для отображения на устройствах меньше 980px*/        
+    

@@ -1,14 +1,23 @@
 <?php
 // подключаем переменные
-
+function permis($query_str) {
+//echo $query_str;
+	$prm_tbl=parc_tbl($query_str);
+//	$prm_row = mysqli_fetch_array($prm_tbl);
+	if ($prm_tbl[0]['perm'] == 999) {
+        return 0;
+      } else {
+	return -1;
+	  }
+}
 function dir_folder($backward) {
 // возращает путь к папке от корневой при смещении backward	
 $ppp=$_SERVER['DOCUMENT_ROOT'];
 $ogr=ini_get('open_basedir'); // оказываются, что существуют ограничения, которые не позволят назначить путь для include в любое место ...
 //echo $ogr;  // если есть вывод, то это ограничения здесь оказалось нет ограничений см файл хостинга phpinfo2.php
-$p_include=substr($ppp,0,strlen($ppp)-$backward).'.php/';
+$p_include=substr($ppp,0,strlen($ppp)-$backward).".php/";
 //set_include_path($p_include);
- return	$p_include;
+return	$p_include;
 }
 
 function parc_tbl($query_str) {
@@ -18,16 +27,15 @@ $dim_tbl=array();  // массив
 $query= $query_str;
 //echo $query;
 if ($result = $mysqli->query($query)) {
-  $num_rows = mysqli_num_rows($result);	
-  while ($obj = $result->fetch_assoc()) {
+	$num_rows = mysqli_num_rows($result);	
+	while ($obj = $result->fetch_assoc()) {
  		$dim_tbl[]=$obj;  
-   }
-  
-  $result->close();
+	}
+	$result->close();
  // var_dump($dim_tbl);              // для отладки
  // echo $dim_tbl[0]["psw"];         // значение столбца psw с 0 строки
  // echo  $num_rows;   // количество строк в ответе для отладки
-  return $dim_tbl;
+	return $dim_tbl;
 } else {
   echo "Нет набора записей (parc_tbl)";
    exit;
@@ -46,11 +54,11 @@ switch ($type_field) {
 
    case 253:
 //строка 
-  $query="UPDATE ".$table." SET `".$field."`='".$value."' WHERE id=".$id;
+  $query="UPDATE `".$table."` SET `".$field."`='".$value."' WHERE id=".$id;
          break;
    case 8:
 //строка 
- $query="UPDATE ".$table." SET `".$field."`='".$value."' WHERE id=".$id;
+ $query="UPDATE `".$table."` SET `".$field."`='".$value."' WHERE id=".$id;
          break;
    case 3;	
 // целое
@@ -62,17 +70,19 @@ switch ($type_field) {
          break;
  
    default:	
-		 $query="UPDATE ".$table." SET ".$field."=".$value." WHERE id=".$id;
+		 $query="UPDATE `".$table."` SET `".$field."`='".$value."' WHERE id=".$id;
  
 }
 //return "-1/". $query;
 //exit;
 if (mysqli_query($mysqli, $query)) {
  //     echo "New record created successfully";
-	  return "0:".$type_field."::".$query;;
+	   // return "0:".$type_field."::".$query;;   // Эта строчка для отладки
+	    return 0;
 } else {
 //      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-	  return "-1/".mysqli_error($mysqli)."//".$type_field."::".$query;
+	  //return "-1/".mysqli_error($mysqli)."//".$type_field."::".$query;  // Эта чтрочка для отладки
+	  return -1;
 }
 mysqli_close($mysqli);
 }
@@ -105,8 +115,8 @@ return $valu_return; // вернула тип поля
 //возвращает массив имен полей таблицы (это мне нужно для того, что бы строить select с выбранными полями (поля, которые не нужны в запросе, в отдельной таблице 
 function get_column_names($table) {
  include(substr($_SERVER['DOCUMENT_ROOT'],0,strlen($_SERVER['DOCUMENT_ROOT'])-4)).'.php/connect.php'; 
- $sql = 'DESCRIBE '.$table;
-// echo $sql;
+ $sql = "DESCRIBE `".$table."`";
+ //echo $sql;
  $result = mysqli_query($mysqli, $sql);
 
   $rows = array();
@@ -202,5 +212,20 @@ $name_fld_tbl=get_column_names($tbl);  // получили одномерный 
 $stroka_fld_select=FORdim_del_str($name_fld_tbl,$stroka,$rzd);	
 return 	$stroka_fld_select;
 //return $tbl."/Отладка";
+}
+
+// получить значение поля из набора записей
+function value_fld($zpr,$field) {
+  $result=parc_tbl($zpr);  // массив
+  $row = array_keys($result[0]);   // получили наименование колонок
+ 
+    foreach ($result as $value){    // перебираем записи
+        
+		 foreach ($row as $title) {
+    	if ($title==$field) {      // поле
+			return  $value[$title];
+		}
+   }
+  }
 }	
 ?>

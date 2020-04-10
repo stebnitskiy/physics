@@ -15,7 +15,7 @@ include_once('func.php');
 //echo $p_include;
 //=======================
 
-$tbl="задачи";
+$tbl="7А";
 $fld="list_fld";
 $rzd=",";
 $stroka=excepFLD($tbl); // получили строку исключений

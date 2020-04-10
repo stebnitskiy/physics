@@ -30,7 +30,7 @@ foreach ($dim_my_tbl as $rez_col){
 				$idx_keys=$idx_keys+1;
 //<td class="edit phone '.$rows['id'].'">'.$rows['phone'].'</td>
         }
-		$idx_rows=$idx_rows+1;;
+		$idx_rows=$idx_rows+1;
         echo "</tr>";
 }
 echo "</table>";

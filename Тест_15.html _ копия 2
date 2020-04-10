@@ -1,0 +1,114 @@
+<script src="./js/data.js"></script>
+<script>
+var test = "Умножение";
+var vopros_1 = "4*12 + 7 = ";
+var vopros_2 = "7-8*2 = ";
+var vopros_3 = "34*2 + 17 = ";
+var vopros_4 = "35*2 + 17 = ";
+var vopros_5 = "36*2 + 4 = ";
+var vopros_6 = "37*8 + 7 = ";
+var vopros_7 = "38*2 + 5 = ";
+var vopros_8 = "39*12 + 19 = ";
+var vopros_9 = "40*2 + 16 = ";
+var vopros_10 = "41*4 + 3 = ";
+var vopros_11 = "42*8 - 7 = ";
+var vopros_12 = "43*6 - 5 = ";
+var vopros_13 = "4*62 - 6 = ";
+var vopros_14 = "45*9 - 9 = ";
+var vopros_15 = "6 * (14 + 43) = ";
+var pr_otv_zadachi_1 = "NTU="; 
+var pr_otv_zadachi_2 = "LTk=";
+var pr_otv_zadachi_3 = "ODU=";
+var pr_otv_zadachi_4 = "ODc=";
+var pr_otv_zadachi_5 = "NzY=";
+var pr_otv_zadachi_6 = "MzAz";
+var pr_otv_zadachi_7 = "ODE=";
+var pr_otv_zadachi_8 = "NDg3";
+var pr_otv_zadachi_9 = "OTY=";
+var pr_otv_zadachi_10 = "MTY3";
+var pr_otv_zadachi_11 = "MzI5";
+var pr_otv_zadachi_12 = "MjUz";
+var pr_otv_zadachi_13 = "MjQy";
+var pr_otv_zadachi_14 = "Mzk2";
+var pr_otv_zadachi_15 = "MzQy";
+
+function ready() {
+    alert('DOM ЗДЕСЬ?');
+}
+   document.addEventListener("DOMContentLoaded", ready) ;
+   
+  
+</script>
+
+<div style="margin-left: auto;margin-right: auto;width: 600px;text-align:center;">
+<p>Тест. Тема - "<span id="tema"></span>".</p>
+<div id="vopros1" style="display:block;">
+<p>Вопрос 1</p>
+<p><span id="v_1"></span> <input type="text" id="z_1"></p>
+</div>
+<div id="vopros2" style="display:none;">
+<p>Вопрос 2</p>
+<p><span id="v_2"></span> <input type="text" id="z_2"></p>
+</div>
+<div id="vopros3" style="display:none;">
+<p>Вопрос 3</p>
+<p><span id="v_3"></span> <input type="text" id="z_3"></p>
+</div>
+<div id="vopros4" style="display:none;">
+<p>Вопрос 4</p>
+<p><span id="v_4"></span> <input type="text" id="z_4"></p>
+</div>
+<div id="vopros5" style="display:none;">
+<p>Вопрос 5</p>
+<p><span id="v_5"></span> <input type="text" id="z_5"></p>
+</div>
+<div id="vopros6" style="display:none;">
+<p>Вопрос 6</p>
+<p><span id="v_6"></span> <input type="text" id="z_6"></p>
+</div>
+<div id="vopros7" style="display:none;">
+<p>Вопрос 7</p>
+<p><span id="v_7"></span> <input type="text" id="z_7"></p>
+</div>
+<div id="vopros8" style="display:none;">
+<p>Вопрос 8</p>
+<p><span id="v_8"></span> <input type="text" id="z_8"></p>
+</div>
+<div id="vopros9" style="display:none;">
+<p>Вопрос 9</p>
+<p><span id="v_9"></span> <input type="text" id="z_9"></p>
+</div>
+<div id="vopros10" style="display:none;">
+<p>Вопрос 10</p>
+<p><span id="v_10"></span> <input type="text" id="z_10"></p>
+</div>
+<div id="vopros11" style="display:none;">
+<p>Вопрос 11</p>
+<p><span id="v_11"></span> <input type="text" id="z_11"></p>
+</div>
+<div id="vopros12" style="display:none;">
+<p>Вопрос 12</p>
+<p><span id="v_12"></span> <input type="text" id="z_12"></p>
+</div>
+<div id="vopros13" style="display:none;">
+<p>Вопрос 13</p>
+<p><span id="v_13"></span> <input type="text" id="z_13"></p>
+</div>
+<div id="vopros14" style="display:none;">
+<p>Вопрос 14</p>
+<p><span id="v_14"></span> <input type="text" id="z_14"></p>
+</div>
+<div id="vopros15" style="display:none;">
+<p>Вопрос 15</p>
+<p><span id="v_15"></span> <input type="text" id="z_15"></p>
+</div>
+<button id="kn_sl" onclick="sled_vopr();">Следующий вопрос</button>
+<button id="kn_pr" style="display:none;" onclick="proverit();">Проверить</button>
+<div id="rezultat"></div>
+</div>
+
+
+
+
+
+

@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
 //https://basicweb.ru/jquery/jquery_event_scroll.php   УЧЕБНИК JQUERY
 //https://metanit.com/web/jquery/2.1.php    УЧЕБНИК JQUERY
 // Палитра цветов HTML https://colorscheme.ru/html-colors.html
@@ -15,18 +16,17 @@ if(isset($_SESSION['id'])) {
 }
 else { 
 //session_destroy();
-echo "No";
+echo "Войдите заново на сайт:"."<a href='http://1gbfiz.ru'>Вход/Регистрация</a>";
 exit;
 }
 
 ?>
-<html >
+<html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <head>
 <title>Школа/Физика</title>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
 <script src="./js/menu.js"></script>
-
 <link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
  <BODY>
@@ -34,10 +34,10 @@ exit;
         <div class="maxw">
         <table id="table_m">
          <tr>
-            <td id="td_m" class='tdm' onMouseOver="className='Default2'" onMouseOut="className='td_m'" onClick="tes()">Расписание</td>
-            <td id="td_m" class='tdm' onMouseOver="className='Default2'" onMouseOut="className='td_m'" onClick="tes()">Журнал</td>
-            <td id="td_m" class='tdm' onMouseOver="className='Default2'" onMouseOut="className='td_m'" onClick="tes()">Задание</td>
-    		<td id="td_m" onMouseOver="className='Default2'" onMouseOut="className='td_m'" onClick="location='http://1gbfiz-ru.1gb.ru/index.php?numPage=4'">Тесты</td>
+            <td id="td_m" class='tdm' onMouseOver="className='Default2'" onMouseOut="className='td_m'" >Физика</td>
+            <td id="td_m" class='tdm' onMouseOver="className='Default2'" onMouseOut="className='td_m'" >Математика</td>
+            <td id="td_m" class='tdm' onMouseOver="className='Default2'" onMouseOut="className='td_m'" >Информатика</td>
+    		<td id="td_m" class='tdm' onMouseOver="className='Default2'" onMouseOut="className='td_m'" >Резерв</td>
          </tr>
     	</table>
         </div>
@@ -52,8 +52,8 @@ exit;
     	<div id="middle"></div>
     	<div id="right"></div>
 	</div>
-  </div>
+ 
 </BODY>
-</HTML>
+<html>
 
   

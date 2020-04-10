@@ -1,10 +1,19 @@
 <?php
+session_start();
+$yuo=$_SESSION['login'];
 Include_once('func.php');
 $table=$_POST['table'];
 $param_case=$_POST['param'];
 $table=stripslashes($table);
 $param_case=stripslashes($param_case);
 $tbl=$table;
+if ($yuo=="8D") {
+ if ($param_case=='proga') {
+    $tbl="8Программа";
+ } else { 
+	 $tbl="8Д";
+ }
+}
 //echo $table;
 //echo $param_case;
 //exit;
@@ -48,6 +57,30 @@ switch ($param_case) {
 				$ret=out_div_tbl($tbl,$query,$f_sort,$klass_proga);
 				
 			break;	
+			
+				case 'prop':
+?>
+<script src="./js/jur_prop.js"></script>
+<?php
+// доделать в виде функции
+			$fld="list_fld";
+			$rzd=",";
+			$stroka=excepFLD($tbl); // получили строку исключений
+			//echo $stroka;
+			$name_fld_tbl=get_column_names($tbl);  // получили одномерный массив имен полей таблицы
+			//echo "Полей:". count($name_fld_tbl);
+			$stroka_fld_select=FORdim_del_str($name_fld_tbl,$stroka,$rzd);
+			//echo "Поля:".$stroka_fld_select;
+			$query= "SELECT ".$stroka_fld_select." FROM `".$tbl."`";
+			//echo $query;
+// =================================================			
+			//	$query= "SELECT * FROM ".$tbl;
+				$f_sort=0;
+				$klass_proga="edit";
+				$ret=out_div_tbl($tbl,$query,$f_sort,$klass_proga);
+				
+			break;	
+		
         case 'sort':
 ?>
 <script src="./js/jur_jr.js"></script>

@@ -22,6 +22,7 @@ if (empty($login) or empty($password)) //если пользователь не 
 //удаляем лишние пробелы
     $login = trim($login);
     $password = trim($password);
+	$md5_password=md5($password);
 $psw='';
 $query="SELECT * FROM identic WHERE name='$login'";
 //подключаемся к базе
@@ -29,7 +30,8 @@ $dim_my=array();
 $dim_my=parc_tbl($query);  // массив
 //echo count($dim_tbl);
 //echo $dim_tbl[0]["name"];
-$psw=$dim_my[0]["psw"];
+//$psw=$dim_my[0]["psw"];
+$psw=$dim_my[0]["sh"];
 $num_rows=sizeof($dim_my);
 //echo $psw;
 //echo sizeof($dim_my);
@@ -44,11 +46,12 @@ $num_rows=sizeof($dim_my);
       else {
     //если существует, то сверяем пароли
  
-		if ($psw==$password) {
-    //если пароли совпадают, то запускаем пользователю сессию! Можете его поздравить, он вошел!
+		if ($psw==$md5_password) {
+    // if ($psw==$password) если пароли совпадают, то запускаем пользователю сессию! Можете его поздравить, он вошел!
 		$_SESSION['login']=$dim_my[0]["name"];
 		$_SESSION['id']=$dim_my[0]["id"];//эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь
 		echo "Вы успешно вошли на сайт как ".$_SESSION['login']." <a href='./js_php.php'>Главная страница</a>";
+		//  echo "Вы успешно вошли на сайт как ".$_SESSION['login']." <a href='./tik_php.php'>Главная страница</a>";
  
 	}
 	else {
